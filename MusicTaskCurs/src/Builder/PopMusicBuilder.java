@@ -1,0 +1,14 @@
+package Builder;
+
+import Composition.Gener;
+import Composition.Music;
+import Interface.IBuilder;
+
+public class PopMusicBuilder implements IBuilder {
+	
+	@Override
+	public Music getMusic(String tembre,String title, String author, double duration) {
+		Music music = new Music(tembre,title, author, Gener.POP, duration);
+		return music;
+	}
+}
