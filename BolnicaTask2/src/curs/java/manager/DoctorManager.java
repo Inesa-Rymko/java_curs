@@ -11,7 +11,6 @@ public class DoctorManager extends Manager {
 		for (int i = 0; i < doctor.length; i++) {
 			if (doctor[i] == null) {
 				index = i;
-				// System.out.println(index);
 				return index;
 			}
 		}
@@ -19,14 +18,11 @@ public class DoctorManager extends Manager {
 	}
 
 	public Integer getIndexP(Pacient[] pacient) {
-		// Doctor[] d = hos.getDoctorList();
 		Integer index = null;
 		for (int i = 0; i < pacient.length; i++) {
 			if (pacient[i] == null) {
 				index = i;
-				// System.out.println(index);
 				return index;
-				// break;
 			}
 		}
 		return null;
@@ -37,9 +33,6 @@ public class DoctorManager extends Manager {
 		int newLenght = size * 2;
 		Doctor[] newDoctor = new Doctor[newLenght];
 		System.arraycopy(doctor, 0, newDoctor, 0, size);
-		// hos.setDoctorList(newDoctor);
-		// for(int i=0; i<newDoctor.length; i++){
-		// System.out.println(newDoctor[i]);}
 		return newDoctor;
 	}
 
@@ -48,9 +41,7 @@ public class DoctorManager extends Manager {
 		Integer index = getIndex(d);
 		if (index != null) {
 			d[index] = doctor;
-			// System.out.println(d);
 		} else {
-
 			Doctor[] newdoc = copyArray(d);
 			Integer newIndex = getIndex(newdoc);
 			if (newIndex != null) {
@@ -80,12 +71,9 @@ public class DoctorManager extends Manager {
 	public void addPacientToDoctor(Pacient pacient, Doctor doc) {
 		Pacient[] pac = doc.getPacientList();
 		Integer index = getIndexP(pac);
-		// for (int i = 0; i < pac.length; i++) {
 		if (index != null) {
 			pac[index] = pacient;
-		}
-		// System.out.println(pac);
-		else {
+		} else {
 			Pacient[] newArr = copyArrayPacientToDoctor(pac);
 			Integer newIndex = getIndexP(newArr);
 			if (newIndex != null) {
@@ -93,10 +81,8 @@ public class DoctorManager extends Manager {
 			}
 			pacient.doctor = doc;
 			doc.setPacientList(newArr);
-			// System.out.println(pac);
 		}
 	}
-	// System.out.println(pac);
 
 	public void listPacientToDoctor(Doctor doc) {
 		Pacient[] pac = doc.getPacientList();
@@ -106,17 +92,18 @@ public class DoctorManager extends Manager {
 			}
 		}
 	}
-	
-	public void countPacientToDoctor(Doctor doc){
+
+	public void countPacientToDoctor(Doctor doc) {
 		Pacient[] pac = doc.getPacientList();
-		int count=0;
+		int count = 0;
 		for (int i = 0; i < pac.length; i++) {
-			if(pac[i]!=null){
+			if (pac[i] != null) {
 				count++;
 			}
 			System.out.println(count);
 		}
 	}
+
 	public Integer getIndexPacient(Pacient[] arr, Pacient pac) {
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] == pac) {
@@ -136,6 +123,7 @@ public class DoctorManager extends Manager {
 		}
 		return newPac;
 	}
+
 	public void deletePacientToDoctor(Pacient pacient, Doctor doc) {
 		Pacient[] pac = doc.getPacientList();
 		Integer index = getIndexPacient(pac, pacient);
@@ -151,7 +139,6 @@ public class DoctorManager extends Manager {
 				countDoctor++;
 			}
 		}
-		// System.out.println(countDoctor);
 		return countDoctor;
 	}
 }
