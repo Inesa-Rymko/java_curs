@@ -1,6 +1,6 @@
 package curs.java.person;
 
-public class Pacient {
+public class Pacient extends People {
 
 	protected String name;
 	protected String surName;

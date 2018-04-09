@@ -1,56 +1,22 @@
 package curs.java.manager;
 
 import curs.java.person.Doctor;
-import curs.java.person.Hospital;
 import curs.java.person.Pacient;
 
 public class DoctorManager extends Manager {
 
-	public Integer getIndex(Doctor[] doctor) {
-		Integer index = null;
-		for (int i = 0; i < doctor.length; i++) {
-			if (doctor[i] == null) {
-				index = i;
-				return index;
-			}
-		}
-		return null;
-	}
-
-	public Integer getIndexP(Pacient[] pacient) {
-		Integer index = null;
-		for (int i = 0; i < pacient.length; i++) {
-			if (pacient[i] == null) {
-				index = i;
-				return index;
-			}
-		}
-		return null;
-	}
-
-	public Doctor[] copyArray(Doctor[] doctor) {
-		int size = doctor.length;
-		int newLenght = size * 2;
-		Doctor[] newDoctor = new Doctor[newLenght];
-		System.arraycopy(doctor, 0, newDoctor, 0, size);
-		return newDoctor;
-	}
-
 	public void addDoctor(Doctor doctor) {
-		Doctor[] d = hos.getDoctorList();
-		Integer index = getIndex(d);
-		if (index != null) {
-			d[index] = doctor;
+		Doctor[] doctors = hos.getDoctorList();
+		if (!ArrayHelper.checkArray(doctors)) {
+			hos.setDoctorList(doctors);
+			ArrayHelper.copySize(doctors);
 		} else {
-			Doctor[] newdoc = copyArray(d);
-			Integer newIndex = getIndex(newdoc);
-			if (newIndex != null) {
-				newdoc[newIndex] = doctor;
-			}
-			hos.setDoctorList(newdoc);
+			Integer newIndex = ArrayHelper.getIndex(doctors);
+			doctors[newIndex] = doctor;
+			}	
+		hos.setDoctorList(doctors);
 		}
-	}
-
+	
 	public void showListDoctor() {
 		Doctor[] d = hos.getDoctorList();
 		for (int i = 0; i < d.length; i++) {
@@ -60,29 +26,18 @@ public class DoctorManager extends Manager {
 		}
 	}
 
-	public Pacient[] copyArrayPacientToDoctor(Pacient[] pacient) {
-		int size = pacient.length;
-		int newLen = size * 2;
-		Pacient[] newPacient = new Pacient[newLen];
-		System.arraycopy(pacient, 0, newPacient, 0, size);
-		return newPacient;
-	}
-
 	public void addPacientToDoctor(Pacient pacient, Doctor doc) {
-		Pacient[] pac = doc.getPacientList();
-		Integer index = getIndexP(pac);
-		if (index != null) {
-			pac[index] = pacient;
+		Pacient[] pac = doc.getPacientList();	
+		if (!ArrayHelper.checkArray(pac)) {
+			ArrayHelper.copySize(pac);
 		} else {
-			Pacient[] newArr = copyArrayPacientToDoctor(pac);
-			Integer newIndex = getIndexP(newArr);
-			if (newIndex != null) {
-				newArr[newIndex] = pacient;
+			Integer newIndex = ArrayHelper.getIndex(pac);
+				pac[newIndex] = pacient;
 			}
-			pacient.doctor = doc;
-			doc.setPacientList(newArr);
+		pacient.doctor = doc;
+			doc.setPacientList(pac);
 		}
-	}
+	
 
 	public void listPacientToDoctor(Doctor doc) {
 		Pacient[] pac = doc.getPacientList();
@@ -102,32 +57,12 @@ public class DoctorManager extends Manager {
 			}
 			System.out.println(count);
 		}
-	}
-
-	public Integer getIndexPacient(Pacient[] arr, Pacient pac) {
-		for (int i = 0; i < arr.length; i++) {
-			if (arr[i] == pac) {
-				return i;
-			}
-		}
-		return null;
-	}
-
-	public Pacient[] deleteElementToIndex(Pacient[] pac, Integer index) {
-		for (int j = index; j < pac.length - 1; j++) {
-			pac[j] = pac[j + 1];
-		}
-		Pacient[] newPac = pac;
-		for (int i = 0; i < newPac.length; i++) {
-			System.out.println(newPac[i]);
-		}
-		return newPac;
-	}
+	}	
 
 	public void deletePacientToDoctor(Pacient pacient, Doctor doc) {
 		Pacient[] pac = doc.getPacientList();
-		Integer index = getIndexPacient(pac, pacient);
-		deleteElementToIndex(pac, index);
+		Integer index = ArrayHelper.getIndexObject(pac, pacient);
+		ArrayHelper.deleteElementToIndex(pac, index);
 		doc.setPacientList(pac);
 	}
 

@@ -1,6 +1,6 @@
 package curs.java.person;
 
-public class Doctor {
+public class Doctor extends People {
 
 	public String name;
 	public String surName;

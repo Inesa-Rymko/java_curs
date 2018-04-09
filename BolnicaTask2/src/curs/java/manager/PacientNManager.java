@@ -1,41 +1,16 @@
 package curs.java.manager;
 
-import curs.java.person.Doctor;
 import curs.java.person.Pacient;
 
 public class PacientNManager extends Manager {
 
-	public Integer getIndex(Pacient[] pacient) {
-		Integer index = null;
-		for (int i = 0; i < pacient.length; i++) {
-			if (pacient[i] == null) {
-				index = i;
-				return index;
-			}
-		}
-		return null;
-	}
-
-	public Pacient[] copyArray(Pacient[] pacient) {
-		int size = pacient.length;
-		int newLenght = size * 2;
-		Pacient[] newPacient = new Pacient[newLenght];
-		System.arraycopy(pacient, 0, newPacient, 0, pacient.length);
-		return newPacient;
-	}
-
 	public void addPacient(Pacient pacient) {
 		Pacient[] pac = hos.getPacientList();
-		Integer index = getIndex(pac);
-		if (index != null) {
-			pac[index] = pacient;
+  	if (!ArrayHelper.checkArray(pac)) {
+  		ArrayHelper.copySize(pac);
 		} else {
-			Pacient[] newPac = copyArray(pac);
-			Integer newIndex = getIndex(newPac);
-			if (newIndex != null) {
-				newPac[newIndex] = pacient;
-			}
-			hos.setPacientList(newPac);
+			Integer newIndex = ArrayHelper.getIndex(pac);
+			pac[newIndex] = pacient;
 		}
 	}
 

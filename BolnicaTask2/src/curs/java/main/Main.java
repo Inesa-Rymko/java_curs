@@ -29,14 +29,16 @@ public class Main {
 		pm.addPacient(pac);
 		pm.addPacient(pac4);
 
-		// System.out.println("-----------doctor to pacient---------------");
+		System.out.println("-----------doctor to pacient---------------");
 		dm.addPacientToDoctor(pac9, doc1);
 		dm.addPacientToDoctor(pac, doc1);
 		dm.addPacientToDoctor(pac4, doc1);
+		
 		System.out.println("----------pacient----------------");
 		dm.listPacientToDoctor(doc1);
+		
 		System.out.println("----------pacient---after delete------------");
-		dm.deletePacientToDoctor(pac4, doc1);
+		//dm.deletePacientToDoctor(pac4, doc1);
 
 		dm.countPacientToDoctor(doc1);
 

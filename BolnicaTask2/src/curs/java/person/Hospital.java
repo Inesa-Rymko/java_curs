@@ -1,9 +1,9 @@
 package curs.java.person;
 
-public class Hospital {
+public class Hospital extends People{
 
-	public Pacient[] pacientList = new Pacient[1];
-	public Doctor[] doctorList = new Doctor[1];
+	public Pacient[] pacientList = new Pacient[10];
+	public Doctor[] doctorList = new Doctor[10];
 
 	public Pacient[] getPacientList() {
 		return pacientList;
