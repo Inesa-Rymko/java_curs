@@ -13,7 +13,7 @@ public class PacientManager implements IPacient {
 		return null;
 	}
 
-	List<Pacient> pacients = new ArrayList<Pacient>();
+	static List<Pacient> pacients = new ArrayList<Pacient>();
 
 	public void addToList(String name, String surName, int age) {
 		Pacient p = new Pacient();

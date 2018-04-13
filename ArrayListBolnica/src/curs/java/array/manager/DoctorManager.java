@@ -15,7 +15,7 @@ public class DoctorManager implements IDoctor {
 		return null;
 	}
 
-	List<Doctor> doctors = new ArrayList<Doctor>();
+	static List<Doctor> doctors = new ArrayList<Doctor>();
 
 	public void addToList(String name, String surName, String worker) {
 		Doctor d = new Doctor();
