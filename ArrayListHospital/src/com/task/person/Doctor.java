@@ -35,7 +35,7 @@ public class Doctor {
 		this.worker = worker;
 	}
 	
-	public String printDoctor() {
+	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(" Pacient [name=" + name + ", surName=" + surName + ", worker=" + worker + "]");
 		return stringBuilder.toString();

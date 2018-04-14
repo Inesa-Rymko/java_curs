@@ -1,4 +1,4 @@
-package com.task.Main;
+package com.task.main;
 
 import com.task.manager.DoctorManager;
 import com.task.manager.PacientManager;
@@ -30,18 +30,12 @@ public class Main {
 		pm.printList();
 		System.out.println(pm.countPacient());
 		
-		dm.addPacienToDoctor(pacient, doctor);
-		dm.addPacienToDoctor(pacient1, doctor);
-		dm.addPacienToDoctor(pacient2, doctor);
-		dm.delPacienToDoctor(pacient1, doctor);
+		pm.addPacienToDoctor(pacient, doctor);
+		pm.addPacienToDoctor(pacient1, doctor);
+		pm.addPacienToDoctor(pacient2, doctor);
+		pm.delPacienToDoctor(pacient1, doctor);
 		System.out.println("--pacient to doctor---");		
-		dm.listPacientToDoctor(doctor);
-		dm.countPacientToDoctor(doctor);
-		
-		
-		
-		
-		
+		pm.printPacientToDoctor(doctor);
+		pm.countPacientToDoctor(doctor);		
 	}
-
 }

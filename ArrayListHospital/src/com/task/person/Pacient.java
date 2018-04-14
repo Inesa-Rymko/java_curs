@@ -45,7 +45,7 @@ public class Pacient {
 		this.doctor = doctor;
 	}
 	
-	public String printAll() {
+	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(" Pacient [name=" + name + ", surName=" + surName + ", age=" + age + "]");
 		return stringBuilder.toString();
