@@ -52,8 +52,4 @@ public class PacientRepository implements IPacientRepository {
 	public long getPacientId(Pacient pacient) {
 		return pacient.getId();
 	}
-
-	public long getPersinId(Pacient pacient) {
-		return pacient.getId();
-	}
 }
