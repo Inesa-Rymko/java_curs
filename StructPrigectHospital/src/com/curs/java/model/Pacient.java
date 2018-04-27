@@ -63,12 +63,13 @@ public class Pacient extends Entity implements Cloneable, Comparable<Pacient> {
 	}
 
 	@Override
-	public int compareTo(Pacient obj) {
-		Pacient entry = (Pacient) obj;
-
-		int result = surName.compareTo(entry.surName);
-		if (result != 0) {
-			return result;
+	public int compareTo(Pacient entry) {
+		// Pacient entry = (Pacient) obj;
+		if (entry != null) {
+			int result = surName.compareTo(entry.surName);
+			if (result != 0) {
+				return result;
+			}
 		}
 		return 0;
 	}

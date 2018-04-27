@@ -10,6 +10,6 @@ public interface IPacientRepository {
 
 	public void addPacient(Pacient pacient);
 
-	public void delPacient(Pacient pacient);
+	public void deletePacient(Pacient pacient);
 
 }

@@ -42,8 +42,8 @@ public class Doctor extends Entity implements Cloneable, Comparable<Doctor> {
 
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder
-				.append(" Doctor [id=" + getId() + ", name=" + name + ", surName=" + surName + ", worker=" + worker + "]");
+		stringBuilder.append(
+				" Doctor [id=" + getId() + ", name=" + name + ", surName=" + surName + ", worker=" + worker + "]");
 		return stringBuilder.toString();
 	}
 
@@ -58,14 +58,13 @@ public class Doctor extends Entity implements Cloneable, Comparable<Doctor> {
 	}
 
 	@Override
-	public int compareTo(Doctor obj) {
-		Doctor entry = (Doctor) obj;
-
-		int result = surName.compareTo(entry.surName);
-		if (result != 0) {
-			return result;
+	public int compareTo(Doctor entry) {
+		if (entry != null) {
+			int result = surName.compareTo(entry.surName);
+			if (result != 0) {
+				return result;
+			}
 		}
 		return 0;
 	}
-
 }

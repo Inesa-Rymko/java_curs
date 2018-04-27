@@ -23,6 +23,7 @@ public class PacientRepository implements IPacientRepository {
 	}
 
 	public List<Pacient> getPacients() {
+		Collections.sort(pacients);
 		return pacients;
 	}
 
@@ -30,26 +31,26 @@ public class PacientRepository implements IPacientRepository {
 		pacients.add(pacient);
 	}
 
-	public void delPacient(Pacient pacient) {
+	public void deletePacient(Pacient pacient) {
 		pacients.remove(pacient);
 	}
 
-	public List<Pacient> getSort() {
-		Collections.sort(pacients);
-		return pacients;
-	}
+//	public List<Pacient> getSort() {
+//		Collections.sort(pacients);
+//		return pacients;
+//	}
 
-	public Pacient clone() throws CloneNotSupportedException {
-		Pacient clone = (Pacient) super.clone();
-		return clone;
+	public Pacient clone(Pacient pacient) throws CloneNotSupportedException {
+		return pacient.clone();
 	}
 
 	public void updatePacient(Pacient Old, Pacient New) {
-		delPacient(Old);
+		deletePacient(Old);
 		addPacient(New);
 	}
 
 	public long getPacientId(Pacient pacient) {
 		return pacient.getId();
 	}
+
 }

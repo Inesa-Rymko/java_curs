@@ -9,6 +9,7 @@ public class Main {
 		Facade f = new Facade();
 
 		Doctor doctor = createDoctor( "Olga", "Zagarinova", "diagnost");
+		Doctor doctor2 = createDoctor( "Lena", "Senko", "lor");
 		Doctor doctor1 = createDoctor( "Olga", "Kamasheva", "medsestra");
 
 		Pacient pacient = createPacient( "Inesa", "Rymko", "grip");
@@ -16,18 +17,27 @@ public class Main {
 		Pacient pacient2 = createPacient( "Pavel", "Solodotenko", "d");
 
 		Doctor clone = null;
-
 		try {
 			clone = doctor.clone();
 			clone.setSurName("Ivanova");
 			clone.setName("Kate");
 			clone.setId(3);
-
+		} catch (CloneNotSupportedException e) {
+			System.out.println("Don't clone");
+		}
+		
+		Pacient cloneP = null;
+		try {
+			cloneP = pacient.clone();
+			cloneP.setSurName("AAA");
+			cloneP.setName("AAA");
+			System.out.println(cloneP);
 		} catch (CloneNotSupportedException e) {
 			System.out.println("Don't clone");
 		}
 
 		f.addDoctor(doctor);
+		f.addDoctor(doctor2);
 		f.addDoctor(doctor1);
 		f.addDoctor(clone);
 
@@ -51,6 +61,7 @@ public class Main {
 		f.showPacientToDoctor(doctor);
 
 		f.countPacientToDoctor(doctor);
+        f.showListDoctorSort();
 
 	}
 

@@ -11,8 +11,4 @@ public abstract class Entity {
 		this.id = id;
 	}
 
-	public Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
-
 }

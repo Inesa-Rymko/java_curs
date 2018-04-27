@@ -10,9 +10,7 @@ import com.curs.java.model.Doctor;
 public class DoctorRepository implements IDoctorRepository {
 
 	private static DoctorRepository instance;
-
 	private List<Doctor> doctors;
-
 	private DoctorRepository() {
 		doctors = new ArrayList<Doctor>();
 	}
@@ -24,7 +22,7 @@ public class DoctorRepository implements IDoctorRepository {
 		return instance;
 	}
 
-	public List<Doctor> getDoctor(Comparator<Doctor> comporator) {
+	public List<Doctor> getDoctors(Comparator<Doctor> comporator) {
 		if (comporator == null) {
 			Collections.sort(doctors);
 		} else {
@@ -37,12 +35,12 @@ public class DoctorRepository implements IDoctorRepository {
 		doctors.add(doctor);
 	}
 
-	public void delDoctor(Doctor doctor) {
+	public void deleteDoctor(Doctor doctor) {
 		doctors.remove(doctor);
 	}
 
 	public void updateDoctor(Doctor Old, Doctor New) {
-		delDoctor(Old);
+		deleteDoctor(Old);
 		addDoctor(New);
 	}
 
@@ -50,13 +48,12 @@ public class DoctorRepository implements IDoctorRepository {
 		return doctor.getId();
 	}
 
-	public Doctor clone() throws CloneNotSupportedException {
-		return (Doctor) super.clone();
+	public Doctor clone(Doctor doctor) throws CloneNotSupportedException {
+		return doctor.clone();
 	}
 
-	public List<Doctor> getSort() {
+	/*public List<Doctor> getSort() {
 		Collections.sort(doctors);
 		return doctors;
-	}
-
+	}*/
 }

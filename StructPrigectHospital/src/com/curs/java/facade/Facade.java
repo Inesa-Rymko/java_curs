@@ -1,5 +1,7 @@
 package com.curs.java.facade;
 
+import com.curs.java.api.facade.IFacade;
+import com.curs.java.comparable.DoctorComparator;
 import com.curs.java.model.Doctor;
 import com.curs.java.model.Entity;
 import com.curs.java.model.Pacient;
@@ -7,7 +9,7 @@ import com.curs.java.service.DoctorService;
 import com.curs.java.service.PacientService;
 import com.curs.java.utils.Printer;
 
-public class Facade {
+public class Facade implements IFacade {
 
 	private static Facade instance;
 
@@ -38,24 +40,24 @@ public class Facade {
 		pacients.addPacient(pacient);
 	}
 
-	public void delPacient(Pacient pacient) {
-		pacients.delPacient(pacient);
+	public void deletePacient(Pacient pacient) {
+		pacients.deletePacient(pacient);
 	}
 
 	public void addPacienToDoctor(Pacient pact, Doctor doc) {
 		pacients.addPacienToDoctor(pact, doc);
 	}
 
-	public void delPacienToDoctor(Pacient pact, Doctor doc) {
-		pacients.delPacienToDoctor(pact, doc);
+	public void deletePacienToDoctor(Pacient pact, Doctor doc) {
+		pacients.deletePacienToDoctor(pact, doc);
+	}
+
+	public void showListDoctorSort() {
+		Printer.printArray(doctors.getDoctors(new DoctorComparator()));
 	}
 
 	public void showListDoctor() {
 		Printer.printArray(doctors.getDoctors(null));
-	}
-
-	public void showListDoctorSort() {
-		Printer.printArray(doctors.getDoctorsSort());
 	}
 
 	public void printerCountPacient() {
@@ -63,23 +65,20 @@ public class Facade {
 	}
 
 	public void showListPacient() {
-		Printer.printArray(pacients.getPacient());
+		Printer.printArray(pacients.getPacients());
 	}
 
 	public void showPacientToDoctor(Doctor doc) {
-
 		System.out.println("--pacient to doctor--" + doc.getSurName());
 		Printer.printArray(doc.getPacientList());
-		;
 	}
 
 	public void countPacientToDoctor(Doctor doc) {
 		Printer.printObject(pacients.countPacientToDoctor(doc));
 	}
 
-	public Entity clone() throws CloneNotSupportedException {
+	public Entity clone(Entity entity) throws CloneNotSupportedException {
 		Entity clone = (Entity) super.clone();
 		return clone;
 	}
-
 }
