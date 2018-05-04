@@ -26,7 +26,6 @@ import com.curs.java.utils.Serializ;
 public class Facade implements IFacade {
 	
 	private static final Logger logger = Logger.getLogger(Serializ.class.getName());
-	//private static final Logger logger = Logger.getLogger("Logger");
 	private static Facade instance;
 	private IDoctorService doctors;
 	private IPacientService pacients;
@@ -36,7 +35,6 @@ public class Facade implements IFacade {
 			final Handler fileHandler = new FileHandler("loggin.txt");
 			logger.setUseParentHandlers(false);
 			logger.addHandler(fileHandler);
-			//Properties.loadConfiguration();
 		} catch (final IOException e) {
 			Printer.print("NO_LOGGER_FILE");
 		}
