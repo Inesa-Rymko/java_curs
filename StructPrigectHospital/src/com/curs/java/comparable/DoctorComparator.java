@@ -16,14 +16,4 @@ public class DoctorComparator implements Comparator<Doctor> {
 			return 1;
 		}
 	}
-		/*if (o1 != null && o2 != null){
-		int flag = o1.getName().compareTo(o2.getName());
-		
-		if (flag == 0) {
-			flag = o1.getSurName().compareTo(o2.getSurName());
-		}
-		return flag;
-		}
-		return 0;
-	}*/
 }
