@@ -1,13 +1,13 @@
 package com.curs.java.model;
 
-import java.io.Serializable;
-
-public class Pacient extends Entity implements Cloneable, Comparable<Pacient>, Serializable {
+public class Pacient extends Entity implements Cloneable, Comparable<Pacient> {
+	
+	private static final long serialVersionUID = 1L;
 	private static long ID;
-	public String name;
-	public String surName;
-	public String diagnos;
-	public Doctor doctor;
+	private String name;
+	private String surName;
+	private String diagnos;
+	private Doctor doctor;
 
 	public Pacient(String name, String surName, String diagnos) {
 		setId(ID++);
