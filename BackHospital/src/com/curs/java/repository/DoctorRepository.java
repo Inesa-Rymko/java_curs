@@ -85,15 +85,6 @@ public class DoctorRepository extends ARepository implements IDoctorRepository {
 		return null;
 	}
 	
-/*	public Doctor updateRepository(String file){
-
-		List<Entity> abj = 	CsvWorker.readOdj(file);
-		
-
-		return null;
-		
-	}*/
-
 	public Doctor clone(Doctor doctor) throws CloneNotSupportedException {
 		return doctor.clone();
 	}

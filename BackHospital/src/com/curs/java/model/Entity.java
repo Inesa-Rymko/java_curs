@@ -14,6 +14,5 @@ public abstract class Entity implements Serializable, Cloneable {
 		this.id = iD2;
 	}
 	
-	//public abstract void update(final Entity entity);
 
 }
