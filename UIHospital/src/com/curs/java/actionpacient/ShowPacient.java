@@ -9,9 +9,6 @@ public class ShowPacient implements IAction{
 	@Override
 	public void execute() {
 		IFacade facade = Facade.getInstance();
-		facade.showListPacient();
-		
+		facade.showListPacient();		
 	}
-	
-
 }

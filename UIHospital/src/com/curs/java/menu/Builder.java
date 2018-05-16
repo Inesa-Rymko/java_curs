@@ -13,10 +13,10 @@ import com.curs.java.actiondoctor.WriteDoctorToCSV;
 import com.curs.java.actionpacient.AddPacient;
 import com.curs.java.actionpacient.CountPacient;
 import com.curs.java.actionpacient.DeletePacient;
+import com.curs.java.actionpacient.ReadDoctorFromCsv;
 import com.curs.java.actionpacient.ShowPacient;
 import com.curs.java.actionpacient.WritePacientToCSV;
 import com.curs.java.actions.ExitAction;
-
 
 public class Builder {
 	
@@ -24,7 +24,7 @@ public class Builder {
 	
 	private Menu builddoctor(Menu prevMenu){
 		MenuItem backItem = new MenuItem();
-		backItem.setTitle("back");
+		backItem.setTitle("return to main menu");
 		backItem.setNextMenu(prevMenu);
 		
 		Menu doctorMenu = new Menu();
@@ -60,6 +60,10 @@ public class Builder {
 		writeCSVDoctor.setTitle("WriteCSVDoctor");
 		writeCSVDoctor.setAction(new WriteDoctorToCSV());
 		
+		MenuItem readCSVDoctor = new MenuItem();
+		readCSVDoctor.setTitle("ReadCSVDoctor");
+		readCSVDoctor.setAction(new ReadDoctorFromCsv());
+		
 		list.add(backItem);
 		list.add(addItem);
 		list.add(showItem);
@@ -68,6 +72,7 @@ public class Builder {
 		list.add(addNewPacientToDoctor);
 		list.add(showPacientToDoctor);
 		list.add(writeCSVDoctor);
+		list.add(readCSVDoctor);
 		
 		doctorMenu.setListItems(list);
 		return doctorMenu;		
@@ -75,7 +80,7 @@ public class Builder {
 	
 	private Menu buildpacient(Menu prevMenu) {
 		MenuItem backItem = new MenuItem();
-		backItem.setTitle("back");
+		backItem.setTitle("return to main menu");
 		backItem.setNextMenu(prevMenu);
 		
 		Menu pacientMenu = new Menu();
@@ -112,23 +117,26 @@ public class Builder {
 	}
 
 	public void buildMenu() {
+		rootMenu = new Menu();
+		rootMenu.setName("Hospital menu");
+		List<MenuItem> list = new ArrayList<>();
+		
 		MenuItem exitItem = new MenuItem();
 		exitItem.setTitle("exit");
 		
 		exitItem.setAction(new ExitAction());
 		MenuItem doctorItem = new MenuItem();
 		doctorItem.setTitle("Doctor");
+		
 		MenuItem pacientItem = new MenuItem();
 		pacientItem.setTitle("Pacient");
 		
-		List<MenuItem> list = new ArrayList<>();
 		list.add(exitItem);
 		list.add(doctorItem);
 		list.add(pacientItem);
 		
-		rootMenu = new Menu();
+		
 		rootMenu.setListItems(list);
-		rootMenu.setName("Hospital");
 		
 		doctorItem.setNextMenu(builddoctor(rootMenu));
 		pacientItem.setNextMenu(buildpacient(rootMenu));

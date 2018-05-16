@@ -1,5 +1,6 @@
 package com.curs.java.actiondoctor;
 
+
 import com.curs.java.actions.IAction;
 import com.curs.java.api.facade.IFacade;
 import com.curs.java.console.Input;
@@ -26,6 +27,7 @@ public class AddDoctor implements IAction {
 	    
 	    Doctor doc = new Doctor(name, surName, worker);
 	    facade.addDoctor(doc);
+		 
 	    
 	}
 

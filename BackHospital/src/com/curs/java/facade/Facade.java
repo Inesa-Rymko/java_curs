@@ -53,8 +53,9 @@ public class Facade implements IFacade {
 		doctors.addDoctor(doctor);
 	}
 
-	public void countDoctor() {
+	public int countDoctor() {
 		Printer.printObject(doctors.countDoctor());
+		return doctors.countDoctor();
 	}
 
 	public void addPacient(Pacient pacient) {
@@ -82,12 +83,13 @@ public class Facade implements IFacade {
 		return doctors.getDoctors(null);
 	}
 
-	public void printerCountPacient() {
+	public int printerCountPacient() {
 		Printer.printObject(pacients.countPacient());
+		return pacients.countPacient();
 	}
 
 	public List<Pacient> showListPacient() {
-		Printer.printArray(pacients.getPacients());
+		Printer. printArray(pacients.getPacients());
 		return pacients.getPacients();
 	}
 
@@ -122,10 +124,8 @@ public class Facade implements IFacade {
 		
 	}
 
-	public void readFile(String file) {
-		
-			System.out.println(CsvWorker.readOdj(file));
-			
+	public void readFile(String file) {		
+			System.out.println(CsvWorker.readOdj(file));			
 				CsvWorker.readOdj(file);
 			
 	}

@@ -10,11 +10,11 @@ public class WriteDoctorToCSV implements IAction {
 
 	@Override
 	public void execute() {
+
 		IFacade facade = Facade.getInstance();
 		Printer.print("Input file name :");
-		
-	    String file = Input.getInstance().getString();
+
+		String file = Input.getInstance().getString();
 		facade.writeToFileDoctor(file);
 	}
-
 }

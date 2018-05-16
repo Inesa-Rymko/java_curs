@@ -15,8 +15,7 @@ public class AddPacientToDoctor implements IAction{
 
 	@Override
 	public void execute() {
-		
-		
+				
 		IFacade facade = Facade.getInstance();
 		Input input = Input.getInstance();
 		

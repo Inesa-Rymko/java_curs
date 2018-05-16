@@ -14,16 +14,15 @@ public class ShowListPacientToDoctor implements IAction {
 
 	@Override
 	public void execute() {
-		
+
 		Input input = Input.getInstance();
 		IFacade facade = Facade.getInstance();
-		
-		 List<Doctor> doc = facade.showListDoctor();  
-			PrinterPrint.showList(doc);
-			Printer.print("Input id number doctor:");
-			int numdoc = Input.getInstance().getInt();
-			facade.showPacientToDoctor(doc.get(numdoc));
+
+		List<Doctor> doc = facade.showListDoctor();
+		PrinterPrint.showList(doc);
+		Printer.print("Input id number doctor:");
+		int numdoc = Input.getInstance().getInt();
+		facade.showPacientToDoctor(doc.get(numdoc));
 	}
-	
 
 }

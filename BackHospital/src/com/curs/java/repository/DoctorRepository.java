@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.curs.java.api.repository.IDoctorRepository;
 import com.curs.java.model.Doctor;
+import com.curs.java.model.Entity;
 import com.curs.java.utils.CsvWorker;
 import com.curs.java.utils.Printer;
 import com.curs.java.utils.Serializ;
@@ -84,13 +85,14 @@ public class DoctorRepository extends ARepository implements IDoctorRepository {
 		return null;
 	}
 	
-	public Doctor updateRepository(String file){
+/*	public Doctor updateRepository(String file){
 
-			CsvWorker.readOdj(file);
+		List<Entity> abj = 	CsvWorker.readOdj(file);
+		
 
 		return null;
 		
-	}
+	}*/
 
 	public Doctor clone(Doctor doctor) throws CloneNotSupportedException {
 		return doctor.clone();

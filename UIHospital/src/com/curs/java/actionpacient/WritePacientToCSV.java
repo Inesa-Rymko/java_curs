@@ -11,8 +11,7 @@ public class WritePacientToCSV implements IAction {
 	@Override
 	public void execute() {
 		IFacade facade = Facade.getInstance();
-		Printer.print("Input file name :");
-		
+		Printer.print("Input file name :");		
 	    String file = Input.getInstance().getString();
 		facade.writeToFilePacient(file);
 	}

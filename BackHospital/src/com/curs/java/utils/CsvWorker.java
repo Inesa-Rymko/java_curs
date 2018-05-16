@@ -2,18 +2,28 @@
 package com.curs.java.utils;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
+import com.curs.java.facade.Facade;
+import com.curs.java.main.Main;
 import com.curs.java.model.Doctor;
 import com.curs.java.model.Entity;
 import com.curs.java.model.Pacient;
+import com.curs.java.repository.DoctorRepository;
 
 public class CsvWorker {
+
+	private static final Logger logger = Logger.getLogger(CsvWorker.class.getName());
+	private static final String FILE_DOEST_EXISTS = "File doesn't exists";
+	private static final String EXEPTION = "Enother exeption";
 
 	public static void writeDoctor(List<Doctor> doctor, String file) throws IOException {
 		StringBuilder stringBuilder = new StringBuilder();
@@ -35,27 +45,28 @@ public class CsvWorker {
 		CSVWriter.writer(stringBuilder, file);
 	}
 
-	public static List<Entity> readOdj(String file) {
-		BufferedReader br;
+	public static List<Doctor> readOdj(String file) {
+		
 		try {
-			br = new BufferedReader(new FileReader(file));
+			 FileInputStream fstream = new FileInputStream(file);
+			   BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+			List<Doctor> doc = new ArrayList<Doctor>();
 			String line;
 			while ((line = br.readLine()) != null) {
-				StringBuilder sb = new StringBuilder(line);
-				ArrayList<Doctor> aList = new ArrayList(Arrays.asList(line.split("; ")));
-				Printer.printObject(aList);
-			}
+				String[] mas = line.split("; ");
+				doc.add(Main.createDoctor(mas[0], mas[1], mas[3]));
+				}
+			br.close();
+			return doc;
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Printer.print(FILE_DOEST_EXISTS);
+			logger.info(FILE_DOEST_EXISTS);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Printer.print(EXEPTION);
+			logger.info(EXEPTION);
 
 		}
 		return null;
 	}
 }
-
-

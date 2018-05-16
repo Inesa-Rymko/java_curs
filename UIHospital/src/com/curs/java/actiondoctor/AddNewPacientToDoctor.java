@@ -29,15 +29,12 @@ public class AddNewPacientToDoctor implements IAction {
 	    
 	    Pacient pac = new Pacient(name, surName, diagnos);
 	    
-
 		Printer.print("Input id number doctor:");
 		int numdoc = Input.getInstance().getInt();
 		
 	    List<Doctor> doc = facade.showListDoctor();  
 		PrinterPrint.showList(doc);
 	    
-	    facade.addPacienToDoctor(pac, doc.get(numdoc));
-		
+	    facade.addPacienToDoctor(pac, doc.get(numdoc));		
 	}
-
 }

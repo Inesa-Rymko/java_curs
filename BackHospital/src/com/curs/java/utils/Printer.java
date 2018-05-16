@@ -25,7 +25,5 @@ public class Printer {
 	public static void printObject(final Object object) {
 		System.out.println(object);
 	}
-	
-	
-}
 
+}

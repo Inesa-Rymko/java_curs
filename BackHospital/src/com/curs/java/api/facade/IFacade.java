@@ -1,5 +1,6 @@
 package com.curs.java.api.facade;
 
+import java.io.File;
 import java.util.List;
 
 import com.curs.java.model.Doctor;
@@ -10,7 +11,7 @@ public interface IFacade {
 
 		public void addDoctor(Doctor doctor);
 
-		public void countDoctor();
+		public int countDoctor();
 
 		public void addPacient(Pacient pacient);
 
@@ -22,7 +23,7 @@ public interface IFacade {
 
 		public void showListDoctorSort();
 
-		public void printerCountPacient();
+		public int printerCountPacient();
 
 		public List<Pacient> showListPacient();
 
