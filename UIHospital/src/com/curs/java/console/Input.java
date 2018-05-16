@@ -27,6 +27,7 @@ public class Input {
 	public int getInt() {
 		return Integer.valueOf(scanner.nextLine());
 	}
+	
 
 	@Override
 	protected void finalize() throws Throwable {

@@ -4,12 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.curs.java.actiondoctor.AddDoctor;
+import com.curs.java.actiondoctor.AddNewPacientToDoctor;
 import com.curs.java.actiondoctor.AddPacientToDoctor;
 import com.curs.java.actiondoctor.CountDoctor;
 import com.curs.java.actiondoctor.ShowDoctor;
+import com.curs.java.actiondoctor.ShowListPacientToDoctor;
+import com.curs.java.actiondoctor.WriteDoctorToCSV;
 import com.curs.java.actionpacient.AddPacient;
 import com.curs.java.actionpacient.CountPacient;
+import com.curs.java.actionpacient.DeletePacient;
 import com.curs.java.actionpacient.ShowPacient;
+import com.curs.java.actionpacient.WritePacientToCSV;
 import com.curs.java.actions.ExitAction;
 
 
@@ -40,14 +45,29 @@ public class Builder {
 		countItem.setAction(new CountDoctor());
 		
 		MenuItem addPacientToDoctor = new MenuItem();
-		addPacientToDoctor.setTitle("addPacientToDoctorr");
+		addPacientToDoctor.setTitle("AddPacientToDoctorFromList");
 		addPacientToDoctor.setAction(new AddPacientToDoctor());
+		
+		MenuItem addNewPacientToDoctor = new MenuItem();
+		addNewPacientToDoctor.setTitle("AddNewPacientToDoctorFromList");
+		addNewPacientToDoctor.setAction(new AddNewPacientToDoctor());
+		
+		MenuItem showPacientToDoctor = new MenuItem();
+		showPacientToDoctor.setTitle("ShowPacientToDoctor");
+		showPacientToDoctor.setAction(new ShowListPacientToDoctor());
+		
+		MenuItem writeCSVDoctor = new MenuItem();
+		writeCSVDoctor.setTitle("WriteCSVDoctor");
+		writeCSVDoctor.setAction(new WriteDoctorToCSV());
 		
 		list.add(backItem);
 		list.add(addItem);
 		list.add(showItem);
 		list.add(countItem);
 		list.add(addPacientToDoctor);
+		list.add(addNewPacientToDoctor);
+		list.add(showPacientToDoctor);
+		list.add(writeCSVDoctor);
 		
 		doctorMenu.setListItems(list);
 		return doctorMenu;		
@@ -67,14 +87,25 @@ public class Builder {
 		MenuItem showItem = new MenuItem();
 		showItem.setTitle("Show pacient");
 		showItem.setAction(new ShowPacient());
+		
 		MenuItem countItem = new MenuItem();
 		countItem.setTitle("Count pacient");
 		countItem.setAction(new CountPacient());
+		
+		MenuItem deleteItem = new MenuItem();
+		deleteItem.setTitle("Delete pacient");
+		deleteItem.setAction(new DeletePacient());
+		
+		MenuItem writeToCsv = new MenuItem();
+		writeToCsv.setTitle("Write pacient to CSV");
+		writeToCsv.setAction(new WritePacientToCSV());
 		
 		list.add(backItem);
 		list.add(addItem);
 		list.add(showItem);
 		list.add(countItem);
+		list.add(deleteItem);
+		list.add(writeToCsv);
 		
 		pacientMenu.setListItems(list);
 		return pacientMenu;
@@ -102,8 +133,6 @@ public class Builder {
 		doctorItem.setNextMenu(builddoctor(rootMenu));
 		pacientItem.setNextMenu(buildpacient(rootMenu));
 	}
-
-	
 
 	public Menu getRootMenu() {
 		return rootMenu;

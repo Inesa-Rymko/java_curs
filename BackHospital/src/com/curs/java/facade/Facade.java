@@ -86,8 +86,9 @@ public class Facade implements IFacade {
 		Printer.printObject(pacients.countPacient());
 	}
 
-	public void showListPacient() {
+	public List<Pacient> showListPacient() {
 		Printer.printArray(pacients.getPacients());
+		return pacients.getPacients();
 	}
 
 	public void showPacientToDoctor(Doctor doc) {
@@ -160,8 +161,10 @@ public class Facade implements IFacade {
 		Printer.print(pacients.getPacientById(id));
 	}
 	
-	public void getDoctorByName(String name){
+	public String getDoctorByName(String name){
 		Printer.print(doctors.getDoctorByName(name));
+		String doc = doctors.getDoctorByName(name);
+		return doc;
 	}
 	
 	public void getPacientByName(String Surname){

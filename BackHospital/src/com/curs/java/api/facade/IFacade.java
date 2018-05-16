@@ -24,7 +24,7 @@ public interface IFacade {
 
 		public void printerCountPacient();
 
-		public void showListPacient();
+		public List<Pacient> showListPacient();
 
 		public void showPacientToDoctor(Doctor doc);
 
@@ -48,7 +48,7 @@ public interface IFacade {
 		
 		public void getPacientByID(long id);
 		
-		public void getDoctorByName(String Surname);
+		public String getDoctorByName(String Surname);
 		
 		public void getPacientByName(String Surname);
 	}
