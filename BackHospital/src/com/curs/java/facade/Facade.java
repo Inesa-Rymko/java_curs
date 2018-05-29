@@ -44,7 +44,7 @@ public class Facade implements IFacade {
 		return instance;
 	}
 
-	public Facade() {
+	private Facade() {
 		doctors = new DoctorService();
 		pacients = new PacientService();
 	}
