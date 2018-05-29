@@ -10,7 +10,12 @@ import com.curs.java.model.Pacient;
 
 public class Reflections {
 	private static Reflections instance;
-	private IFacade facade = Facade.getInstance();
+	
+       private IFacade facade;
+
+	private Reflections(){
+		facade = Facade.getInstance();
+	};
 
 	public static Reflections getInstance() {
 		if (instance == null) {
